@@ -1,5 +1,10 @@
+# igonre all files in videos folder except 1.mp4, 2.mp4, 3.mp4 and 4.mp4  files
 /videos/*
-/overspeeding/*.png
+!/videos/1.mp4
+!/videos/2.mp4
+!/videos/3.mp4
+!/videos/4.mp4
+/overspeeding/*
 /.fleet
 /.idea
 /.vscode
