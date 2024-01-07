@@ -1,0 +1,38 @@
+# Algorithm of this script
+
+
+1 - Read Video
+    - Input the name of the video file manually.
+    - Check if the specified video file exists in the designated folder.
+
+2 - Check File Existence
+    - If the video file does not exist, print an error message and exit the program.
+
+
+3 - Input Speed Limit
+    - Input the speed limit manually.
+    - If no input is provided, use a default speed limit (e.g., 80 KMPH).
+    - Validate the input to ensure it is a digit and not a negative number. If invalid, print an error message and exit the program.
+
+4 - Process Video
+    - Load the video file for processing.
+    - Set parameters such as video frame width and height, crop settings, markers for speed calculation, and compensation factor for processing speed.
+
+5 - Detect Cars
+    - Use a car classifier (like Haar Cascade) to detect cars in each frame of the video.
+    - Perform this detection at regular intervals (e.g., every 60 frames) to optimize performance.
+
+6 - Track Cars
+    - For each detected car, check if it matches any previously tracked car based on their centroids.
+    - If it's a new car, assign a new tracker (e.g., using dlib.correlation_tracker).
+    - Update trackers for existing cars and remove trackers of cars that are no longer in the frame or have low tracking quality.
+
+7 - Calculate Speed
+    - For each tracked car, start timing when the car crosses the first marker and stop timing when it crosses the second marker.
+    - Calculate the car's speed based on the time taken to travel between the two markers and the known distance between them. Convert this speed to KMPH.
+
+8 - Check Speed Limit
+    - Compare the calculated speed of each car with the set speed limit.
+
+9 - Save Image if Overspeeding
+    - If a car's speed exceeds the speed limit, save a screenshot of the car along with details like the car ID, speed, date, and time.
